@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Titillium+Web');
+		
+        body {
+            font-family: 'Titillium Web', sans-serif;
+        }
+        
+        #tables {
+            margin-top: 40px;
+        }
+        span {
+            background: #FF5722;
+            padding: 2%;
+            margin-right: 1%;
+            cursor: pointer;
+            color: white;
+            border: solid 2px #ecbbab;
+            display: inline-flex;
+        }
+        #result {
+            margin-top: 3%;
+            font-size: 1.5em;
+            font-weight: 300;
+            color: #1d9616;
+        }
+    </style>
+</head>
+<body>
+    <h1>This is a Table-Manager</h1>
+    <div id="Tables"></div>
+    <div id="Result"></div>
+
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+    var Tables = document.getElementById('tables');
+
+    for(let i=1; i<= 6; i++){
+        var item = document.createElement('span');
+        item.appendChild(document.createTextNode('Table ' + i));
+        Tables.appendChild(item);
+
+        item.onclick = function(){
+            document.getElementById('result').innerHTML ="tables is " + i;
+        }
+
+    }
+
+	</script>	
+</body>
+</html>
