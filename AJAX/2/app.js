@@ -18,10 +18,28 @@ function getpost(cb) {
     xhr.send();
 }
 
-function renderposts(response) {
-    const fragment = document.createDocumentFragment();
-        response.forEach(post => {
-            const card = document.createElement('div');
+function createPost(body, cb) {
+    const xhr = new XMLHttpRequest();
+    // console.log(xhr);
+    xhr.open("POST", "https://jsonplaceholder.typicode.com/posts");
+    xhr.addEventListener("load", () => {
+        console.log('request loaded');
+        //console.log(xhr.responseText);
+        const response = JSON.parse(xhr.responseText);
+        cb(response);
+    });
+    
+    xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+
+    xhr.addEventListener("error", () => {
+        console.log('error request');
+    });
+    
+    xhr.send(JSON.stringify(body));
+} 
+
+function cardTemplate(post) {
+    const card = document.createElement('div');
             card.classList.add('card');
             const cardBody = document.createElement('div');
             cardBody.classList.add('card-body');
@@ -34,13 +52,35 @@ function renderposts(response) {
             cardBody.appendChild(title);
             cardBody.appendChild(article);
             card.appendChild(cardBody);
+            return card;
+}
+
+function renderposts(response) {
+    const fragment = document.createDocumentFragment();
+        response.forEach(post => {
+            const card = cardTemplate(post);
             fragment.appendChild(card);
         });
         container.appendChild(fragment);
 }  
 
-const btn = document.getElementById('btn');
+const btn = document.querySelector('.btn-get-posts');
+const btnAddPost = document.querySelector('.btn-add-posts');
 const container = document.querySelector('.container');
 btn.addEventListener('click', event => {
     getpost(renderposts);
 }) 
+
+btnAddPost.addEventListener('click', event => {
+    const NewPost = {
+        title: 'Kek',
+        body: 'bar',
+        userId: 1,
+    };
+    
+    createPost(NewPost, response => {
+        const card = cardTemplate(response);
+        console.log(card);
+        container.insertAdjacentElement('afterbegin', card);
+    });
+});
