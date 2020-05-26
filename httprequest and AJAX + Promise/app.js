@@ -61,26 +61,26 @@ function customHttp() {
 // Init http module
 const http = customHttp();
 
-http.GET('https://jsonplaceholder.typicode.com/posts', (err, res) => {
-    if (err) {
-        console.log("error: ", err);
-        return;
-    }
-    http.GET('https://jsonplaceholder.typicode.com/comments?postId=1', (err, res) => {
-        if (err) {
-            console.log("error: ", err);
-            return;
-        }
-        http.GET('https://jsonplaceholder.typicode.com/users/1', (err, res) => {
-            if (err) {
-                console.log("error: ", err);
-                return;
-            }
-            // console.log('Уры');
+// http.GET('https://jsonplaceholder.typicode.com/posts', (err, res) => {
+//     if (err) {
+//         console.log("error: ", err);
+//         return;
+//     }
+//     http.GET('https://jsonplaceholder.typicode.com/comments?postId=1', (err, res) => {
+//         if (err) {
+//             console.log("error: ", err);
+//             return;
+//         }
+//         http.GET('https://jsonplaceholder.typicode.com/users/1', (err, res) => {
+//             if (err) {
+//                 console.log("error: ", err);
+//                 return;
+//             }
+//             // console.log('Уры');
             
-        })
-    })
-})
+//         })
+//     })
+// })
 
 function getposts(id) {
     return new Promise((resolve, reject) => {
@@ -117,7 +117,7 @@ function getpostsComments(pc) {
 };
     
 getposts()
-    .then(pc => getpostsComments(pc))
+    .then(pc => getpostsComments())
     .then(user => getUser())
     .then(obj => console.log(obj))
     .catch(err => console.log(err));
