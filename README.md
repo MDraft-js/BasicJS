@@ -353,6 +353,8 @@ arr.unshift(0); // результат вызова равен 3, новой дл
 ```js
 const animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
 const newAnimals = animals.splice() // Скопирует массив
+// ---------------
+arr.splice(arr.findIndex(obj => obj.id == '123'), 1)
 ```
 
 
