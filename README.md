@@ -8,11 +8,47 @@
 # *Глобальные методы и глобальные функции*
 
 ### URI
+```
+new URL('https://hmtai.herokuapp.com/v2/neko')
+```
+```js
+{
+    hash: "",
+    host: "hmtai.herokuapp.com",
+    hostname: "hmtai.herokuapp.com",
+    href: "https://hmtai.herokuapp.com/v2/neko",
+    origin: "https://hmtai.herokuapp.com",
+    password: "",
+    pathname: "/v2/neko",
+    port: "",
+    protocol: "https:",
+    search: "",
+    searchParams: URLSearchParams {},
+    username: "",
+}
+```
+
+#### URI encoded/decoded Component
 
 ```js
 const uri = 'https://mozilla.org/?x=шеллы';
 const encoded = encodeURI(uri) // https://mozilla.org/?x=%D1%88%D0%B5%D0%BB%D0%BB%D1%8B
 decodeURI(encoded) // https://mozilla.org/?x=шеллы
+```
+
+#### URISearchParams
+```js
+const uri = 'https://domain.com/';
+const params = {
+    query: 123,
+    filter: 'example',
+}
+
+const url = new URL(uri);
+url.search = new URLSearchParams(params);
+// or
+url.searchParams.set('query', params.query)
+url.searchParams.set('filter', params.filter)
 ```
 
 ### class
@@ -64,6 +100,17 @@ const test2 = test('Mikun')
 <br>x|y = Равносильно || в JS
 <br>x{1, 2} = От 1 до 2 символов
 <br>x{1,} = От 1 до infinity
+
+### Console Text Coloring
+```js
+let rbg = '0;255;255'
+`\x1b[38;2;${rgb}m` // Font
+`\x1b[38;0m` // Reset Font
+`\x1b[40;2;${rbg}m` // Background
+`\x1b[40;0m` // Rest backgroud
+`\x1b[0m` // Reset All
+```
+
 
 Различия между краткой формой RegExp // и полной new RegExp() лишь в том, что:
 ```js
