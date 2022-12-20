@@ -384,6 +384,15 @@ console.log('Удалён этот элемент: ' + shifted);
 //Удалён этот элемент: ангел
 ```
 
+### pop()
+> #### Метод pop() удаляет последний элемент из массива и возвращает его значение. Этот метод изменяет длину массива.
+
+```js
+const plants = ['broccoli', 'cauliflower', 'cabbage', 'kale', 'tomato'];
+
+plants.pop(); // // expected output: Array ["broccoli", "cauliflower", "cabbage", "kale"]
+```
+
 ### unshift()
 > #### Метод unshift() добавляет один или более элементов в начало массива и возвращает новую длину массива.
 ```js
@@ -441,7 +450,7 @@ console.log(elements.join('-'));
 const array = [1, 2, 3, 4, 5];
 
 // checks whether an element is even
-const even = (element) => #### element % 2 === 0;
+const even = (element) => element % 2 === 0;
 
 console.log(array.some(even)); // expected output: true
 ```
@@ -449,7 +458,7 @@ console.log(array.some(even)); // expected output: true
 ### reduce()
 ```js
 const array1 = [1, 2, 3, 4];
-const reducer = (previousValue, currentValue) => #### previousValue + currentValue;
+const reducer = (previousValue, currentValue) => previousValue + currentValue;
 
 // 1 + 2 + 3 + 4
 console.log(array1.reduce(reducer)) // expected output: 10
@@ -468,21 +477,21 @@ console.log(alphaNumeric); // Результат: ['a', 'b', 'c', 1, 2, 3]
 ### filter()
 ```js
 const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
-const result = words.filter(word => #### word.length > #### 6);
+const result = words.filter(word => word.length > 6);
 console.log(result) // expected output: Array ["exuberant", "destruction", "present"]
 ```
 
 ### find()
 ```js
 const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
-const result = words.find(word => #### word.length > #### 6);
+const result = words.find(word => word.length > 6);
 console.log(result) // expected output: "exuberant"
 ```
 
 ### findIndex()
 ```js
 const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
-const result = words.findIndex(word => #### word.length > #### 6);
+const result = words.findIndex(word => word.length > 6);
 console.log(result) // expected output: 3
 ```
 
